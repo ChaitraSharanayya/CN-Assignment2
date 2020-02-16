@@ -1,0 +1,121 @@
+IMPLEMENTATION OF GO-BACK-N(GBN) PROTOCOL
+
+The program is about sender sending a message and then receiver replaying to it.
+
+-------------------------
+reference:https://drive.google.com/drive/mobile/folders/0B_r34E-d-nqWMTRlV2NaRFB6a1U?usp=drive_open
+
+-------------------------
+
+We used Datagramsocket class
+Which is a predefined class in java library.
+
+In the sender side
+In the main function, scanner class is used to scan the objects and to get input from from the user.
+Here we defined the ip object of the inet address class which is by the ipaddress localhost or using ip address to which you want to communicate.
+Then the datagramsocket is created for the sender and the parameter will be null.But in the server side we should pass the port number.
+
+In the while loop,
+The loop will be continuously looping until it terminates.
+
+First sender will send the message and then receiver replay to it.
+
+While transferring data in udp your data must be in bytes.
+
+So that we declared two byte array sender & receiver buffer.
+When the sender sends message it will be in string format 
+So it is converted to byte.
+
+
+For that I'll create an object datagrampacket which will include the data and other information such as port number of the receiver and ip address of the receiver.
+In the constructor first paameter is byte array,second parameter is lengh of the data third is ip address of the inet address then port number.
+Using this sendpacket we will send packet to receiver,
+Now my packet will be sent to receiver side.  
+
+At the receiver side,
+We will declare the same packet datagramsocket for the receiver socket mentioning the port number.
+
+The port number of server side and receiver side must be same.
+
+Then scanner is used to scan the object, then taken the 
+
+
+
+To accept the data from sender side, declared a object recvdpkt which holds the data in byte format receiver buffer & lengh of it.
+
+Serversocket will receive the data sent by the sender by recvdpkt.
+
+To get the ip address and other data from the packet,first I will get the ip address from which ip address it is coming.
+
+
+Getport will send the port address
+It is in integer format as port number is integer.
+It is converted to string 
+As my data from sender side is byte I need to convert it to string format to display it using string function.
+
+Now the sender data is displayed, it's time for receiver to take input from user the similar procedure is performed.
+String message(replay) is converted to byte then sendpacket holding constructors such as send buffer,it's length,ip,portno:We have to replay to the same sender where we received data.
+
+This while loop will be continuously true so to terminate I use if condition
+ if receiver says bye 
+The loop terminates and receiversocket will be closed. 
+
+In the same way
+If sender says bye
+In the sender side 
+The loop will break and the sendersocket will be closed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+-------------------------------------------------------
+
+output
+
+sender side
+sender:hiii
+receiver:  
+
+receiver side
+sender:hiii
+receiver:hello
+sender:
+
+sender side
+sender:hiii
+receiver:hello
+sender:morning 
+receive:
+
+receiver side
+sender:hiii
+receiver:hello
+sender:morning 
+receive:evening
+sender:
+
+sender side
+sender:hiii
+receiver:hello
+sender:morning 
+receive:evening
+sender:bye
+
+connection ended by sender
+
+receiver side
+sender:hiii
+receiver:hello
+sender:morning 
+receive:evening
+sender:bye   
+receiver:bye
+
+connection ended by receiver
+-----------------------------------------------
+challenges faced:
+                 
+It was tough to do the implementation of packet drop in the program. 
+It was equally tough to understand window size implementation.
+we tried to implement checksum but ended with exception.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+-----------------------------------------------
+contribution of team:
+working together on understanding the concepts.
+
+----------------------------------------------
